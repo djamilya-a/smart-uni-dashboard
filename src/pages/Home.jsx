@@ -4,6 +4,7 @@ import Schedule from '../components/Schedule'
 import Materials from '../components/Materials'
 import Ai from '../components/Ai'
 import Ecology from '../components/Ecology'
+// import Test from '../components/test'
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
     <Materials/>
     <Ai/>
     <Ecology/>
+    {/* <Test/> */}
     </>
   )
 }

@@ -1,6 +1,43 @@
-import React from 'react'
+import React, { useState, useEffect } from "react";
 
 const Main = () => {
+    const [exams, setExams] = useState([]);
+    const [deadlines, setDeadlines] = useState([]);
+    const [events, setEvents] = useState([]);
+  
+    const [input, setInput] = useState("");
+    const [date, setDate] = useState("");
+    const [type, setType] = useState("exams");
+  
+    // Загружаем из localStorage
+    useEffect(() => {
+      const saved = JSON.parse(localStorage.getItem("plansData"));
+      if (saved) {
+        setExams(saved.exams || []);
+        setDeadlines(saved.deadlines || []);
+        setEvents(saved.events || []);
+      }
+    }, []);
+  
+    // Сохраняем при каждом изменении
+    useEffect(() => {
+      const data = { exams, deadlines, events };
+      localStorage.setItem("plansData", JSON.stringify(data));
+    }, [exams, deadlines, events]);
+  
+    const addPlan = (e) => {
+      e.preventDefault();
+      if (!input || !date) return alert("Заполни все поля!");
+  
+      const newItem = { name: input, date };
+      if (type === "exams") setExams([...exams, newItem]);
+      if (type === "deadlines") setDeadlines([...deadlines, newItem]);
+      if (type === "events") setEvents([...events, newItem]);
+  
+      setInput("");
+      setDate("");
+    };
+  
   return (
     <main className='w-full bg-[#141621]'>
       <div className="w-[1300px] mx-auto flex justify-between items-center pt-[20px] pb-[80px]">
@@ -15,47 +52,80 @@ const Main = () => {
           </ul>
         </div>
         <div className="flex flex-col gap-[20px]">
-          <div className="flex gap-[20px]">
-            <div className="w-[270px] bg-[#fffcf6] h-[200px] p-[15px] rounded-[8px]">
-              <h3 className='text-[20px] text-[#141621]'>Мои экзамены:</h3>
-              <ul className='text-[16px] text-[#141621] py-[5px] list-disc pl-[15px]'>
-                <li>
-                  <h5>Английский язык:</h5>
-                  <p className='text-[#0c3561] font-bold mb-[5px] underline'>21.10.25</p>
-                </li>
-                <li>
-                  <h5>Русский язык:</h5>
-                  <p className='text-[#0c3561] font-bold underline'>23.10.25</p>
-                </li>
-              </ul>
-            </div>
-            <div className="w-[270px] bg-[#fffcf6] h-[200px] p-[15px] rounded-[8px]">
-              <h3 className='text-[20px] text-[#141621]'>Дедлайны:</h3>
-              <ul className='text-[16px] text-[#141621] py-[5px] list-disc pl-[15px]'>
-                <li>
-                  <h5>Эко-проект:</h5>
-                  <p className='text-[#0c3561] font-bold underline'>27.10.25</p>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="w-[560px] bg-[#fffcf6] p-[15px] h-[200px] rounded-[8px]">
-            <h3 className='text-[20px] text-[#141621]'>Мероприятия:</h3>
-            <ul className='text-[16px] text-[#141621] py-[5px] list-disc pl-[15px]'>
-              <li>
-                <h5>Осенний бал:</h5>
-                <p className='text-[#0c3561] font-bold underline mb-[5px]'>31.10.25</p>
-              </li>
-              <li>
-                <h5>Презентация лучших проектов:</h5>
-                <p className='text-[#0c3561] font-bold underline'>22.10.25</p>
-              </li>
-            </ul>
-          </div>
-        </div>
+          <div className="flex gap-[20px] ">
+          <div className="min-h-screen bg-[#10111a] text-gray-900 flex flex-row items-center gap-8 p-8 text-[18px]">
+      <div className="flex gap-6 flex-wrap justify-center">
+      
+        <Card title="Мои экзамены:" items={exams} />
+        <Card title="Дедлайны:" items={deadlines} />
       </div>
+      <Card title="Мероприятия:" items={events} />
+
+      <form
+        onSubmit={addPlan}
+        className="bg-white rounded-2xl p-6 mt-6 shadow-lg flex flex-col gap-3 w-[320px]"
+      >
+        <h2 className="text-lg font-semibold mb-2">Добавить план</h2>
+
+        <label>Тип:</label>
+        <select
+          value={type}
+          onChange={(e) => setType(e.target.value)}
+          className="border rounded p-2"
+        >
+          <option value="exams">Экзамен</option>
+          <option value="deadlines">Дедлайн</option>
+          <option value="events">Мероприятие</option>
+        </select>
+
+        <label>Название:</label>
+        <input
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          className="border rounded p-2"
+          placeholder="Например: Математика"
+        />
+
+        <label>Дата:</label>
+        <input
+          value={date}
+          onChange={(e) => setDate(e.target.value)}
+          className="border rounded p-2"
+          placeholder="Например: 25.10.25"
+        />
+
+        <button
+          type="submit"
+          className="bg-blue-600 text-white rounded-lg p-2 mt-3 hover:bg-blue-700 transition"
+        >
+          Добавить
+        </button>
+      </form>
+    </div>
+  );
+       
+      </div></div></div>
     </main>
   )
 }
-
+function Card({ title, items }) {
+  return (
+    <div className="bg-[#fafafa] rounded-2xl shadow-lg p-6 w-[300px]">
+      <h2 className="font-semibold text-lg mb-3">{title}</h2>
+      <ul className="list-disc list-inside space-y-2">
+        {items.length === 0 && (
+          <p className="text-gray-500 text-sm">Пока ничего нет</p>
+        )}
+        {items.map((item, i) => (
+          <li key={i}>
+            {item.name}:{" "}
+            <a href="#" className="text-blue-700 underline">
+              {item.date}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
 export default Main
