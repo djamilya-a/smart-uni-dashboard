@@ -21,7 +21,7 @@ const Schedule = () => {
             <div className="w-[200px] flex flex-col items-start justify-start text-[16px] text-[#141621] border border-[1px] border-[#0c3561] p-[5px]"> <p className='font-bold text-[20px] text-[#0c3561]'>Вторник</p>
               <div className="h-[100px]"><p>Иностранный язык</p></div>
               <div className="h-[100px]"><p>Математика</p></div>
-              <div className="h-[100px]"><p>Математическая</p></div>
+              <div className="h-[100px]"><p>Математическая логика</p></div>
               <div className="h-[100px]"><p></p></div></div>
             <div className="w-[200px] flex flex-col items-start justify-start text-[16px] text-[#141621] border border-[1px] border-[#0c3561] p-[5px]"> <p className='font-bold text-[20px] text-[#0c3561]'>Среда</p>
               <div className="h-[100px]"><p>Инновационная информатика</p></div>

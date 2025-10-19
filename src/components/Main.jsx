@@ -47,7 +47,7 @@ const Main = () => {
                 <p className='text-[#0c3561] font-bold underline mb-[5px]'>31.10.25</p>
               </li>
               <li>
-                <h5>Презентация лучших проектов::</h5>
+                <h5>Презентация лучших проектов:</h5>
                 <p className='text-[#0c3561] font-bold underline'>22.10.25</p>
               </li>
             </ul>
