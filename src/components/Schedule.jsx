@@ -2,44 +2,37 @@ import React, { useEffect, useState } from "react";
 
 const Schedule = () => {
   const allLessons = [
-    "Математика",
-    "Иностранный язык",
-    "Кыргызский язык",
-    "Компьютерная графика",
-    "Физика",
-    "Основы алгоритмитизации",
-    "Инновационная информатика",
-    "Математическая логика",
+    "Математика 202к А",
+    "Иностранный язык 180 B",
+    "Кыргызский язык 197 А ",
+    "Компьютерная графика 159 С",
+    "Физика 167 С",
+    "Основы алгоритмитизации 151 D ",
+    "Инновационная информатика 182 В",
+    "Математическая логика 178 В",
   ];
 
   const [lessons, setLessons] = useState([]);
+  const [monday, setMonday] = useState([]);
+  const [tuesday, setTuesday] = useState([]);
+  const [wednesday, setWednesday] = useState([]);
+  const [thursday, setThursday] = useState([]);
 
-  // Генерация случайного списка уроков
   function getRandomLessons(count = 4) {
     return Array.from({ length: count }, () => {
       const randomIndex = Math.floor(Math.random() * allLessons.length);
       return allLessons[randomIndex];
     });
   }
-
+ 
   useEffect(() => {
-    setLessons(getRandomLessons(4)); // Например, 10 уроков
+    setLessons(getRandomLessons(4)); 
+    setThursday(getRandomLessons(4));
+    setWednesday(getRandomLessons(4));
+    setMonday(getRandomLessons(4));
+    setTuesday(getRandomLessons(4));
   }, []);
   return (
-    //     {schedule.map((daySchedule, i) => (
-    //       <div
-    //         key={i}
-    //         className="bg-[#fafafa] text-gray-900 rounded-2xl shadow-lg p-6 w-[280px]"
-    //       >
-    //         <h2 className="text-xl font-bold mb-3">{daySchedule.day}</h2>
-    //
-    //           {daySchedule.lessons.map((lesson, j) => (
-    //             <li key={j}>{lesson}</li>
-    //           ))}
-
-    //       </div>
-
-    // </div>
     <section className="w-full bg-[#fffcf6] py-[60px]">
       <div className="w-[1400px] mx-auto">
         <h3 className="text-[34px] text-[#141621] font-semibold">
@@ -78,10 +71,10 @@ const Schedule = () => {
             <div className="w-[200px] flex flex-col items-start justify-start text-[16px] text-[#141621] border border-[1px] border-[#0c3561] p-[5px]">
               {" "}
               <p className="font-bold text-[20px] text-[#0c3561]">Вторник</p>
-              {lessons.map((lesson, i) => (
+              {tuesday.map((tuesday, i) => (
                 <>
                   <div key={i} className="h-[100px]">
-                    <p>{lesson}</p>
+                    <p>{tuesday}</p>
                   </div>
                 </>
               ))}
@@ -89,10 +82,10 @@ const Schedule = () => {
             <div className="w-[200px] flex flex-col items-start justify-start text-[16px] text-[#141621] border border-[1px] border-[#0c3561] p-[5px]">
               {" "}
               <p className="font-bold text-[20px] text-[#0c3561]">Среда</p>
-              {lessons.map((lesson, i) => (
+              {wednesday.map((wednesday, i) => (
                 <>
                   <div key={i} className="h-[100px]">
-                    <p>{lesson}</p>
+                    <p>{wednesday}</p>
                   </div>
                 </>
               ))}
@@ -100,10 +93,10 @@ const Schedule = () => {
             <div className="w-[200px] flex flex-col items-start justify-start text-[16px] text-[#141621] border border-[1px] border-[#0c3561] p-[5px]">
               {" "}
               <p className="font-bold text-[20px] text-[#0c3561]">Четверг</p>
-              {lessons.map((lesson, i) => (
+              {thursday.map((thursday, i) => (
                 <>
                   <div key={i} className="h-[100px]">
-                    <p>{lesson}</p>
+                    <p>{thursday}</p>
                   </div>
                 </>
               ))}
@@ -111,10 +104,10 @@ const Schedule = () => {
             <div className="w-[200px] flex flex-col items-start justify-start text-[16px] text-[#141621] border border-[1px] border-[#0c3561] p-[5px]">
               {" "}
               <p className="font-bold text-[20px] text-[#0c3561]">Пятница</p>
-              {lessons.map((lesson, i) => (
+              {monday.map((monday, i) => (
                 <>
                   <div key={i} className="h-[100px]">
-                    <p>{lesson}</p>
+                    <p>{monday}</p>
                   </div>
                 </>
               ))}
