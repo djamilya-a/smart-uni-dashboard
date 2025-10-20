@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 const Schedule = () => {
-  const allLessons = [
+    const allLessons = [
     "Математика 202к А",
     "Иностранный язык 180 B",
     "Кыргызский язык 197 А ",
@@ -138,6 +138,7 @@ const Schedule = () => {
         </div>
       </div>
     </section>
+    
   );
 };
 
