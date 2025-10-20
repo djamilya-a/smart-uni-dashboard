@@ -74,7 +74,7 @@ export default function Regis() {
           <button
             type="submit"
             disabled={loading}
-            className="w-[400px] bg-[#fffcf6] border border-[2px] border-[#0c3561] text-[#141621] py-[15px] rounded-[10px] text-[16px] text-[#0c3561] hover:bg-[#FFFCF6] transition"
+            className="w-[400px] bg-[#141621] border border-[2px] border-[#141621] text-[#141621] py-[15px] rounded-[10px] text-[16px] text-[#fffcf6] hover:bg-[#fffcf6] hover:text-[#141621] transition"
           >
             {loading ? "Загрузка..." : "Зарегистрироваться"}
           </button>
