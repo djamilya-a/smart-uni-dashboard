@@ -23,7 +23,7 @@ const Ecology = () => {
         </div>
         <div className="w-[300px] h-[200px] flex flex-col justify-between">
           <h4 className='text-[26px] text-[#FFFCF6]'>Энергия, сэкономленная на этой неделе:</h4>
-          <h4 className='text-[30px] text-[#FCD043] underline'>120 КилоВатт</h4>
+          <h4 className='text-[30px] text-[#fffcf6] underline'>120 КилоВатт</h4>
         </div>
       </div>
     </section>
