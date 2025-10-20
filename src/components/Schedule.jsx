@@ -12,7 +12,7 @@ const Schedule = () => {
     "Математическая логика 178 В",
   ];
 
-  const [lessons, setLessons] = useState([]);
+  const [friday, setfriday] = useState([]);
   const [monday, setMonday] = useState([]);
   const [tuesday, setTuesday] = useState([]);
   const [wednesday, setWednesday] = useState([]);
@@ -24,9 +24,9 @@ const Schedule = () => {
       return allLessons[randomIndex];
     });
   }
- 
+
   useEffect(() => {
-    setLessons(getRandomLessons(4)); 
+    setfriday(getRandomLessons(4));
     setThursday(getRandomLessons(4));
     setWednesday(getRandomLessons(4));
     setMonday(getRandomLessons(4));
@@ -41,29 +41,29 @@ const Schedule = () => {
         <div className="flex justify-between items-center py-[10px]">
           <div className="w-[1020px] flex border border-[1px] border-[#0c3561] bg-[#e7ffe6]">
             <div className="w-[20px] flex flex-col items-start justify-start border border-[1px] border-[#0c3561] px-[5px]">
-              <div className="h-[30px]"></div>
-              <div className="h-[100px] font-bold text-[20px] text-[#0c3561]">
+              <div className="h-[50px]"></div>
+              <div className="h-[85px] font-bold text-[20px] text-[#0c3561]">
                 <p>1</p>
               </div>
-              <div className="h-[100px] font-bold text-[20px] text-[#0c3561]">
+              <div className="h-[85px] font-bold text-[20px] text-[#0c3561]">
                 <p>2</p>
               </div>
-              <div className="h-[100px] font-bold text-[20px] text-[#0c3561]">
+              <div className="h-[85px] font-bold text-[20px] text-[#0c3561]">
                 <p>3</p>
               </div>
-              <div className="h-[100px] font-bold text-[20px] text-[#0c3561]">
+              <div className="h-[85px] font-bold text-[20px] text-[#0c3561]">
                 <p>4</p>
               </div>
             </div>
             <div className="w-[200px] flex flex-col items-start justify-start text-[16px] text-[#141621] border border-[1px] border-[#0c3561] p-[5px]">
               {" "}
-              <p className="font-bold text-[20px] text-[#0c3561]">
+              <p className="font-bold text-[20px] text-[#0c3561] pb-[15px]">
                 Понедельник
               </p>
-              {lessons.map((lesson, i) => (
+              {monday.map((monday, i) => (
                 <>
-                  <div key={i} className="h-[100px]">
-                    <p>{lesson}</p>
+                  <div key={i} className="h-[85px]">
+                    <p>{monday}</p>
                   </div>
                 </>
               ))}
@@ -104,10 +104,10 @@ const Schedule = () => {
             <div className="w-[200px] flex flex-col items-start justify-start text-[16px] text-[#141621] border border-[1px] border-[#0c3561] p-[5px]">
               {" "}
               <p className="font-bold text-[20px] text-[#0c3561]">Пятница</p>
-              {monday.map((monday, i) => (
+              {friday.map((friday, i) => (
                 <>
                   <div key={i} className="h-[100px]">
-                    <p>{monday}</p>
+                    <p>{friday}</p>
                   </div>
                 </>
               ))}
@@ -117,9 +117,6 @@ const Schedule = () => {
             <ul>
               <li className="pb-[10px]">
                 <a href="#">Расписание на неделю</a>
-              </li>
-              <li className="pb-[10px]">
-                <a href="#">Только на сегодня</a>
               </li>
               <h6>По корпусам:</h6>
               <ul className="list-disc text-[20px] ml-[30px] pt-[7px]">

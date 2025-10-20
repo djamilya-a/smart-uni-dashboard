@@ -8,10 +8,10 @@ const Materials = () => {
           <div className="p-[30px] w-[600px] bg-[#fffcf6] rounded-[10px]">
             <h3 className='text-[26px] text-[#141621] pb-[15px]'>Учебные материалы:</h3>
             <ul className='text-[18px] text-[#141621] list-disc flex flex-col justify-start items-start gap-[15px] font-semibold pl-[15px]'>
-              <li><a href="https://studfile.net/preview/9744729/">Введение в Компьютерную графику</a></li>
-              <li><a href="https://mathprofi.ru/osnovy_matematicheskoj_logiki.html">Основы Математической логики</a></li>
-              <li><a href="https://prog-cpp.ru/algorithmization/">Основы алгоритмитизации</a></li>
-              <li><a href="https://www.sviaz-expo.ru/ru/articles/sovremennye-informacionnye-tehnologii/">Современные информационные технологии</a></li>
+              <li><a className='underline' href="https://studfile.net/preview/9744729/">Введение в Компьютерную графику</a></li>
+              <li><a className='underline' href="https://mathprofi.ru/osnovy_matematicheskoj_logiki.html">Основы Математической логики</a></li>
+              <li><a className='underline' href="https://prog-cpp.ru/algorithmization/">Основы алгоритмитизации</a></li>
+              <li><a className='underline' href="https://www.sviaz-expo.ru/ru/articles/sovremennye-informacionnye-tehnologii/">Современные информационные технологии</a></li>
             </ul>
           </div>
           <div className="flex gap-[30px] py-[10px]">
